@@ -1,19 +1,32 @@
 // WALL BOUNCERS FUNCTIONS
 
-function newObject(initX, initY, initSpeed, initColor) {
-    return {
-        x: initX,
-        y: initY,
-        speed: initSpeed,
-        color: initColor
-    };
-}
-
 function newRandomObject() {
     return {
         x: randomInt(0, cnv.width),
         y: randomInt(0, cnv.height),
-        speed: randomDec(1, 6),
+        speedX: randomInt(-6, 5),
+        speedY: randomInt(-6, 5),
         color: randomRGB()
     };
 }
+
+function drawObject(object) {
+    fill(object.color);
+    rect(object.x, object.y, 15, 15, "fill");
+}
+
+function moveObject(object) {
+    object.x += object.speedX;
+    object.y += object.speedY;
+
+    checkCollisions();
+}
+
+function checkCollisions() {
+
+}
+
+function addObject() {
+    objects.push(newRandomObject);
+}
+
