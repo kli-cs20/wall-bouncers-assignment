@@ -4,11 +4,6 @@
 let cnv = document.getElementById("canvas");
 let ctx = cnv.getContext("2d");
 
-let mouseX;
-let mouseY;
-let mouseIsPressed = false;
-let keyPressed = {};
-
 // Canvas Default Size
 cnv.width = 600;
 cnv.height = 600;
@@ -32,6 +27,11 @@ function ptInCircle(x, y, aCircle) {
 // Test if point is in rectangle
 function ptInRectangle(x, y, aRect) {
   return (x > aRect.x && x < aRect.x + aRect.w && y > aRect.y && y < aRect.y + aRect.h);
+}
+
+// Test if point is in square
+function ptInSquare(x, y, aRect) {
+  return (x > aRect.x && x < aRect.x + aRect.w && y > aRect.y && y < aRect.y + aRect.w);
 }
 
 // Test if two circle objects intersect
