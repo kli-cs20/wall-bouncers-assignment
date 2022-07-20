@@ -2,6 +2,14 @@
 
 // Global Variables
 let objects = [];
+let player = {
+    x: 300,
+    y: 300,
+    w: 25,
+    h: 25,
+    direction: "",
+    color: "white"
+}
 
 // Animation Loop
 requestAnimationFrame(draw);
@@ -17,7 +25,10 @@ function draw() {
         checkCollisions(objects[i]);
     }
 
-    console.log(objects.length)
+    // Move and Draw Player
+    movePlayer();
+    drawPlayer();
+    checkPlayerCollisions();
 
     requestAnimationFrame(draw);
 }
@@ -32,6 +43,14 @@ document.addEventListener("mousedown", mousedownHandler)
 function keydownHandler(e) {
     if (e.keyCode === 40) {
         objects.pop()
+    } else if (e.keyCode === 87) {
+        player.direction = "up";
+    } else if (e.keyCode === 65) {
+        player.direction = "left";
+    } else if (e.keyCode === 83) {
+        player.direction = "down";
+    } else if (e.keyCode === 68) {
+        player.direction = "right";
     }
 }
 
