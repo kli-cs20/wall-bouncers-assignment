@@ -6,8 +6,8 @@ function newRandomObject() {
         x: randomInt(0, cnv.width - WIDTH),
         y: randomInt(0, cnv.height - WIDTH),
         w: WIDTH,
-        speedX: randomInt(-4, 3),
-        speedY: randomInt(-4, 3),
+        speedX: randomInt(-5, 4),
+        speedY: randomInt(-5, 4),
         color: randomRGB()
     };
 }

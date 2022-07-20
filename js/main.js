@@ -3,11 +3,11 @@
 // Global Variables
 let objects = [];
 
-
 // Animation Loop
 requestAnimationFrame(draw);
 
 function draw() {
+    // Redraw Empty Canvas
     background("black");
 
     // Move and Draw Wall Bouncers
@@ -17,7 +17,19 @@ function draw() {
         checkCollisions(objects[i]);
     }
 
+    console.log(objects.length)
+
     requestAnimationFrame(draw);
 }
 
 setInterval(addObject, 3000);
+
+// EVENTS
+document.addEventListener("keydown", keydownHandler);
+
+function keydownHandler(e) {
+    if (e.keyCode === 40) {
+        objects.pop()
+    }
+}
+
