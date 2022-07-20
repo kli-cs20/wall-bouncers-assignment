@@ -14,10 +14,10 @@ function draw() {
     for (let i = 0; i < objects.length; i++) {
         moveObject(objects[i]);
         drawObject(objects[i]);
-        // Check Collisions
+        checkCollisions(objects[i]);
     }
 
     requestAnimationFrame(draw);
 }
 
-setInterval(addObject(), 250);
+setInterval(addObject, 3000);
